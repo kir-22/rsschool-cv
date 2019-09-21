@@ -329,3 +329,7 @@
 *2014* | Testing web-based applications
 
        | Training Technology center "BelHard", SOFTWARE Testing (tester)
+
+## English level
+>My level English is a A1-A2. I want to improve my English. I'd like to lern English fast. I study English himself: Duolingo, SkyEng, Youtoube video. I study him every day, because i want to speak English free.
+![English Level](https://www.itestenglish.com/images/graph6.png)
