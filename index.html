@@ -78,34 +78,60 @@
       <a name="example">
         <section class="example">
           <h2 class="example-title">Example my code on JavaScript</h2>
-          <h3 class="code-name">The function is a Solve an quadratic equation</h3>
+          <h3 class="code-name">Example fetch response of Youtube task</h3>
           <code>
             <pre>
-              function solveEquation(equation) {<br>
-                  equation=equation.replace(/\s/g, '');<br>
-                  const array=[];<br>
-                  let indexA=equation.search(/\^/),<br>
-                      a=parseInt(equation.slice(0,indexA)),<br>
-                      indexB=equation.search(/\*x[+-]/),<br>
-                      b=parseInt(equation.slice(indexA+2,indexB)),<br>
-                      c=parseInt(equation.slice(indexB+2));<br>
-                  let discremenant=(b*b)-(4*a*c);<br>
-                  if(discremenant > 0){<br>
-                      let x1=Math.round((-b+Math.sqrt(discremenant))/(2*a)),<br>
-                          x2=Math.round((-b-Math.sqrt(discremenant))/(2*a));<br>
-                      array.push(x1,x2);<br>
-                      return array.sort((a,b) => {<br>
-                          return a-b;<br>
-                      });<br/>
-                  }else if(discremenant==0){<br>
-                      let x=(-b)/(2*a);<br>
-                      array.push(x);<br>
-                      return array;<br>
-                  }<br>
-                  else if(discremenant < 0){
-                      return console.log("The equation has no solution");
-                  }<br />
-              }
+
+import { init, addInit } from './init';
+let next;
+let prev;
+export{next, prev};
+
+export function ajax(){
+
+fetch(`https://www.googleapis.com/youtube/v3/
+       search?key=AIzaSyDR4nYtKG6R4r2ByKEmvGl9Q3ulSRJcHbM&type=video&part=snippet&maxResults=15&q=${this.value}`)
+
+.then((response)=>{
+  return response.json();
+})
+
+  .then((data)=>{
+    next = data.nextPageToken;
+    let arr = data.items.map((item)=> item.id.videoId);
+    fetch(`https://www.googleapis.com/youtube/v3/
+           videos?key=AIzaSyCTWC75i70moJLzyNh3tt4jzCljZcRkU8Y&id=${arr.join(',')}&part=snippet,statistics`)
+    .then((res)=>{
+      return res.json();
+    })
+
+    .then((stat)=>{
+      init(stat.items);
+    })
+});
+
+}
+
+export function addedAjax(next){
+    fetch(`https://www.googleapis.com/youtube/v3/
+           search?key=AIzaSyDR4nYtKG6R4r2ByKEmvGl9Q3ulSRJcHbM&type=video&part=snippet&maxResults=15&pageToken=${next}`)
+    .then((response)=>{
+      return response.json();
+    })
+    .then((data)=>{
+      next = data.nextPageToken;
+      prev = data.prevPageToken;
+      let arr = data.items.map((item)=> item.id.videoId);
+      fetch(`https://www.googleapis.com/youtube/
+             v3/videos?key=AIzaSyCTWC75i70moJLzyNh3tt4jzCljZcRkU8Y&id=${arr.join(',')}&part=snippet,statistics`)
+      .then((res)=>{
+        return res.json();
+      })
+      .then((stat)=>{
+        addInit(stat.items);
+      })
+    });
+}
             </pre>
           </code>
           <h3 class="code-name">My Game on HTM5 - Arcanoud</h3>
@@ -343,7 +369,9 @@
         </section>
       </a>
       <a name="practis">
-        <section class="practis"></section>
+        <section class="practis">
+          
+        </section>
       </a>
       <a name="course">
         <section class="course"></section>
