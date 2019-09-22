@@ -9,7 +9,7 @@
 body{
   background: #3f4040;
   color: var(--text-a-color);
-  width: 100vw;
+  max-width: 100vw;
 }
 .wrapper{
   display: flex;
@@ -183,3 +183,79 @@ pre{
   border: 2px solid #daa520;
 }
 /*Practis*/
+.practis{
+  flex-direction: column;
+}
+.practis-list{
+  display: flex;
+  flex-flow: column;
+  width: 80%;
+  list-style-type: decimal;
+  list-style-position: inside;
+  font-size: 1.2em;
+  letter-spacing: 0.1em;
+  word-spacing: 0.3em;
+  word-spacing: 0.3em;
+}
+.practis-list li a{
+  text-decoration: none;
+  cursor: pointer;
+  color: #20da6c;
+}
+/*Course*/
+.course{
+  flex-direction: column;
+}
+
+.education-title{
+  display: inline-block;
+  text-transform: uppercase;
+}
+.education-title h4{
+  color: #5aa520;
+  margin: 15px 0;
+}
+.education-content{
+  display: flex;
+  flex-flow: row;
+  width: 100%;
+  justify-content: space-between;
+}
+.education-years{
+  flex-grow: 1;
+  font-size: 1.1em;
+}
+.education-describe{
+  width: 70%;
+  flex-grow: 1;
+  font-size: 1.1em;
+}
+/*English*/
+.english{
+  display: flex;
+  flex-flow: column;
+}
+.text-english{
+  margin: 15px 0;
+  font-size: 1.1em;
+}
+/*footer*/
+.footer{
+  display: flex;
+  flex-flow: column-reverse;
+  height: 100px;
+  background: linear-gradient(to bottom, #3f4040, var(--bg-color));
+  padding: 30px 0
+}
+.footer-contact{
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  color: var(--text-a-color);
+}
+.footer-contact a{
+  color: var(--text-a-color);
+}
+.footer-info{
+  text-align: center;
+}

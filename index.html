@@ -27,60 +27,57 @@
       </div>
     </header>
     <main>
-      <a name="about">
-        <section class="about">
-          <div class="about-foto"></div>
-          <div class="about-info">
-            <h1 class="about-fullname">Kireyeu <span class="about-fullname-firstname">Kiryll</span></h1>
-            <hr class="about-line">
-            <div class="about-social">
-              <ul class="about-list-social">
-                <li><a href="https://vk.com/kireewkirill"><span class="icon icon-vk"></span></a></li>
-                <li><a href="https://www.facebook.com/kirill.kireew"><span class="icon icon-fb"></span></a></li>
-                <li><a href="https://www.instagram.com/kir__22/"><span class="icon icon-instagram"></span></a></li>
-              </ul>
-            </div>
+      <a name="about"></a>
+      <section class="about">
+        <div class="about-foto"></div>
+        <div class="about-info">
+          <h1 class="about-fullname">Kireyeu <span class="about-fullname-firstname">Kiryll</span></h1>
+          <hr class="about-line">
+          <div class="about-social">
+            <ul class="about-list-social">
+              <li><a href="https://vk.com/kireewkirill"><span class="icon icon-vk"></span></a></li>
+              <li><a href="https://www.facebook.com/kirill.kireew"><span class="icon icon-fb"></span></a></li>
+              <li><a href="https://www.instagram.com/kir__22/"><span class="icon icon-instagram"></span></a></li>
+            </ul>
           </div>
-        </section>
-      </a>
-      <a name="summary">
-        <section class="summary">
-          <h2>Summary</h2>
-          <p>I learn easily. I like to learn something new. I'am purposeful, responsible. 
-            I like Javascript.
-            I'd like to progress in 
-            Webdevelopment and create beautiful applications.
-            I study Javascript and his frameworks (Node.js, TypeScript) himself.
-            I finish a course - "Develop Game on Unity3D".
-            I also want to create a HTML5 game.
-            And I will make every effort to become a developer!
-          </p>
-        </section>
-      </a>
-      <a name="skills">
-        <section class="skills">
-          <h2>Skills</h2>
-          <ul class="skills-list">
-            <li>C#</li>
-            <li>JavaScript</li>
-            <li>HTML5</li>
-            <li>CSS3</li>
-            <li>NodeJS</li>
-            <li>Unity3D</li>
-            <li>TypeScript</li>
-            <li>Less</li>
-            <li>Photoshop</li>
-            <li>Git</li>
-            <li>Bitrix</li>
-          </ul>
-        </section>
-      </a>
-      <a name="example">
-        <section class="example">
-          <h2 class="example-title">Example my code on JavaScript</h2>
-          <h3 class="code-name">Example fetch response of Youtube task</h3>
-          <code>
-            <pre>
+        </div>
+      </section>
+      <a name="summary"></a>
+      <section class="summary">
+        <h2>Summary</h2>
+        <p>I learn easily. I like to learn something new. I'am purposeful, responsible. 
+          I like Javascript.
+          I'd like to progress in 
+          Webdevelopment and create beautiful applications.
+          I study Javascript and his frameworks (Node.js, TypeScript) himself.
+          I finish a course - "Develop Game on Unity3D".
+          I also want to create a HTML5 game.
+          And I will make every effort to become a developer!
+        </p>
+      </section>
+      <a name="skills"></a>
+      <section class="skills">
+        <h2>Skills</h2>
+        <ul class="skills-list">
+          <li>C#</li>
+          <li>JavaScript</li>
+          <li>HTML5</li>
+          <li>CSS3</li>
+          <li>NodeJS</li>
+          <li>Unity3D</li>
+          <li>TypeScript</li>
+          <li>Less</li>
+          <li>Photoshop</li>
+          <li>Git</li>
+          <li>Bitrix</li>
+        </ul>
+      </section>
+      <a name="example"></a>
+      <section class="example">
+        <h2 class="example-title">Example my code on JavaScript</h2>
+        <h3 class="code-name">Example fetch response of Youtube task</h3>
+        <code>
+          <pre>
 
 import { init, addInit } from './init';
 let next;
@@ -90,296 +87,350 @@ export{next, prev};
 export function ajax(){
 
 fetch(`https://www.googleapis.com/youtube/v3/
-       search?key=AIzaSyDR4nYtKG6R4r2ByKEmvGl9Q3ulSRJcHbM&type=video&part=snippet&maxResults=15&q=${this.value}`)
+      search?key=AIzaSyDR4nYtKG6R4r2ByKEmvGl9Q3ulSRJcHbM&type=video&part=snippet&maxResults=15&q=${this.value}`)
 
 .then((response)=>{
-  return response.json();
+return response.json();
 })
 
-  .then((data)=>{
-    next = data.nextPageToken;
-    let arr = data.items.map((item)=> item.id.videoId);
-    fetch(`https://www.googleapis.com/youtube/v3/
-           videos?key=AIzaSyCTWC75i70moJLzyNh3tt4jzCljZcRkU8Y&id=${arr.join(',')}&part=snippet,statistics`)
-    .then((res)=>{
-      return res.json();
-    })
+.then((data)=>{
+  next = data.nextPageToken;
+  let arr = data.items.map((item)=> item.id.videoId);
+  fetch(`https://www.googleapis.com/youtube/v3/
+          videos?key=AIzaSyCTWC75i70moJLzyNh3tt4jzCljZcRkU8Y&id=${arr.join(',')}&part=snippet,statistics`)
+  .then((res)=>{
+    return res.json();
+  })
 
-    .then((stat)=>{
-      init(stat.items);
-    })
+  .then((stat)=>{
+    init(stat.items);
+  })
 });
 
 }
 
 export function addedAjax(next){
-    fetch(`https://www.googleapis.com/youtube/v3/
-           search?key=AIzaSyDR4nYtKG6R4r2ByKEmvGl9Q3ulSRJcHbM&type=video&part=snippet&maxResults=15&pageToken=${next}`)
-    .then((response)=>{
-      return response.json();
+  fetch(`https://www.googleapis.com/youtube/v3/
+          search?key=AIzaSyDR4nYtKG6R4r2ByKEmvGl9Q3ulSRJcHbM&type=video&part=snippet&maxResults=15&pageToken=${next}`)
+  .then((response)=>{
+    return response.json();
+  })
+  .then((data)=>{
+    next = data.nextPageToken;
+    prev = data.prevPageToken;
+    let arr = data.items.map((item)=> item.id.videoId);
+    fetch(`https://www.googleapis.com/youtube/
+            v3/videos?key=AIzaSyCTWC75i70moJLzyNh3tt4jzCljZcRkU8Y&id=${arr.join(',')}&part=snippet,statistics`)
+    .then((res)=>{
+      return res.json();
     })
-    .then((data)=>{
-      next = data.nextPageToken;
-      prev = data.prevPageToken;
-      let arr = data.items.map((item)=> item.id.videoId);
-      fetch(`https://www.googleapis.com/youtube/
-             v3/videos?key=AIzaSyCTWC75i70moJLzyNh3tt4jzCljZcRkU8Y&id=${arr.join(',')}&part=snippet,statistics`)
-      .then((res)=>{
-        return res.json();
-      })
-      .then((stat)=>{
-        addInit(stat.items);
-      })
-    });
+    .then((stat)=>{
+      addInit(stat.items);
+    })
+  });
 }
-            </pre>
-          </code>
-          <h3 class="code-name">My Game on HTM5 - Arcanoud</h3>
-          <code>
-            <pre>
-                const game={
-                  width:640,
-                  height: 360,
-                  ctx: undefined,
-                  platform:undefined,
-                  ball:undefined,
-                  rows: 4,
-                  cols:8,
-                  blocks:[],
-                  score:0,
-                  running: true,
-                  sprites:{
-                      background: undefined,
-                      platform: undefined,
-                      ball: undefined,
-                      block:undefined
-                  },
-                  init: function(){
-                      var canvas=document.getElementById('mycanvas');
-                      this.ctx=canvas.getContext('2d');
-                      this.ctx.font='20px Arial';
-                      this.ctx.fillStyle='#FFFFFF';
-              
-                      window.addEventListener('keydown',function(e){
-                          if(e.keyCode == 37){
-                              game.platform.dx = -game.platform.speed;
-                          }else if(e.keyCode == 39){
-                              game.platform.dx=game.platform.speed;
-                          }else if(e.keyCode == 32){
-                              game.platform.releaseBall();
-                              
-                          }
-                      });
-                      window.addEventListener('keyup',function(e){
-                          game.platform.stop();
-                      });
-                  },
-                  load:function(){
-                      for(var key in this.sprites){
-                          this.sprites[key]=new Image();//объект для загрузки картинки
-                          this.sprites[key].src='img/'+key+'.png';//путь к картинке
-                      }
-                      
-                      
-                  },
-                  create:function(){
-                      for(var row = 0; row < this.rows; row++){
-                      for(var col = 0; col < this.cols; col++){
-                          this.blocks.push({
-                              x: 68 * col + 50,
-                              y: 38 * row + 35,
-                              width:64,
-                              height:32,
-                              isAlive: true
-                              });
-              
-                          }
-                      }
-                  },
-                  start: function(){
-                      this.init();
-                      this.load();
-                      this.create();
-                      this.run();
-                  },
-                  render: function(){
-                      this.ctx.clearRect(0,0,this.width,this.height);
-                      this.ctx.drawImage(this.sprites.background,0,0);//отрисовывает картинку, картинка и ее координаты х,у
-                      this.ctx.drawImage(this.sprites.platform,this.platform.x,this.platform.y);
-                      this.ctx.drawImage(this.sprites.ball,this.ball.x*this.ball.frame,0
-                                        ,this.ball.width,this.ball.height
-                                        ,this.ball.x,this.ball.y
-                                        ,this.ball.width,this.ball.height);
-                      
-                      this.blocks.forEach(function(el){
-                          if(el.isAlive){
-                              this.ctx.drawImage(this.sprites.block,el.x,el.y);
-                          }
-                      },this)
-              
-                      
-              
-                      this.ctx.fillText('SCORE: '+this.score, 15,this.height-15);
-                  },
-                  update: function(){
-                      if(this.ball.collide(this.platform)){
-                          this.ball.bumpPlatform(this.platform);
-                      }
-              
-              
-                      if(this.platform.dx){
-                          this.platform.move();
-                      }
-                      if(this.ball.dx||this.ball.dy){
-                          this.ball.move();
-                      }
-                      this.blocks.forEach(function(element){
-                          if(element.isAlive){
-                                  if(this.ball.collide(element)){
-                                      this.ball.bumpBlock(element);
-                              }
-                          }
-                      },this);
-                      this.ball.checkBounds();
-                  },
-                  run: function(){
-                      this.update();
-                      this.render();
-                      if(this.running){
-                          window.requestAnimationFrame(function(){
-                              game.run();
-                          });//указывает браузеру вывести на экран и запланировать перерисовку
-                      }
-                  },
-                  over: function (mes) {
-                      alert(mes);
-                      console.log('GAME OVER!');
-                      this.running=false;
-                      window.location.reload();
-                  }
-              };
-              
-              game.ball={
-                  width:22,
-                  height:22,
-                  frame:0,
-                  x:340,
-                  y:278,
-                  dx:0,
-                  dy:0,
-                  speed:3,
-                  jump:function(){
-                      this.dx=-this.speed;
-                      this.dy=-this.speed;
-                      this.animate();
-                  },
-                  animate:function () {
-                      setInterval(function() {
-                          ++game.ball.frame;
-                          if(game.ball.frame > 3){
-                              game.ball.frame=0;
-                          }
-                      },100);
-                      
-                  },
-                  move: function(){
-                        this.x+=this.dx;
-                        this.y+=this.dy;
-                  },
-                  collide:function(element){
-                      var x=this.x + this.dx;
-                      var y=this.y + this.dy;
-                      if(x + this.width > element.x &&
-                          x < element.x+element.width&&
-                          y+this.height > element.y&&
-                          y < element.y+element.height
-                      ){
-                          return true;
-                      }
-                      return false;
-                  },
-                  bumpBlock: function(block){
-                      this.dy*=-1;
-                      block.isAlive=false;
-                      ++game.score;
-                      if(game.score >= game.blocks.length){
-                          game.over('YOU WIN');
-                      }
-                  },
-                  onTheLeftSide:function (platform) {
-                      return (this.x+this.width/2)<(platform.x+platform.width/2);
-                  },
-                  bumpPlatform: function(platform){
-                      this.dy = -this.speed;
-                      this.dx=this.onTheLeftSide(platform)?-this.speed:this.speed;
-                      
-                  },
-                  checkBounds: function () {
-                      var x=this.x + this.dx;
-                      var y=this.y + this.dy;
-                      if(x < 0){
-                          this.x=0;
-                          this.dx=this.speed;
-                      }else if(x+this.width > game.width){
-                          this.x=game.width-this.width;
-                          this.dx=-this.speed;
-                      }else if(y < 0){
-                          this.y=0;
-                          this.dy=this.speed;
-                      }else if(y+this.height>game.height){
-                          game.over('GAME OVER');
-                      }
-                  }
-              }
-              
-              game.platform={
-                  x:300,
-                  y:300,
-                  speed: 6,
-                  dx: 0,
-                  ball: game.ball,
-                  width: 104,
-                  height: 24,
-                  move: function(){
+          </pre>
+        </code>
+        <h3 class="code-name">My Game on HTM5 - Arcanoud</h3>
+        <code>
+          <pre>
+              const game={
+                width:640,
+                height: 360,
+                ctx: undefined,
+                platform:undefined,
+                ball:undefined,
+                rows: 4,
+                cols:8,
+                blocks:[],
+                score:0,
+                running: true,
+                sprites:{
+                    background: undefined,
+                    platform: undefined,
+                    ball: undefined,
+                    block:undefined
+                },
+                init: function(){
+                    var canvas=document.getElementById('mycanvas');
+                    this.ctx=canvas.getContext('2d');
+                    this.ctx.font='20px Arial';
+                    this.ctx.fillStyle='#FFFFFF';
+            
+                    window.addEventListener('keydown',function(e){
+                        if(e.keyCode == 37){
+                            game.platform.dx = -game.platform.speed;
+                        }else if(e.keyCode == 39){
+                            game.platform.dx=game.platform.speed;
+                        }else if(e.keyCode == 32){
+                            game.platform.releaseBall();
+                            
+                        }
+                    });
+                    window.addEventListener('keyup',function(e){
+                        game.platform.stop();
+                    });
+                },
+                load:function(){
+                    for(var key in this.sprites){
+                        this.sprites[key]=new Image();//объект для загрузки картинки
+                        this.sprites[key].src='img/'+key+'.png';//путь к картинке
+                    }
+                    
+                    
+                },
+                create:function(){
+                    for(var row = 0; row < this.rows; row++){
+                    for(var col = 0; col < this.cols; col++){
+                        this.blocks.push({
+                            x: 68 * col + 50,
+                            y: 38 * row + 35,
+                            width:64,
+                            height:32,
+                            isAlive: true
+                            });
+            
+                        }
+                    }
+                },
+                start: function(){
+                    this.init();
+                    this.load();
+                    this.create();
+                    this.run();
+                },
+                render: function(){
+                    this.ctx.clearRect(0,0,this.width,this.height);
+                    this.ctx.drawImage(this.sprites.background,0,0);//отрисовывает картинку, картинка и ее координаты х,у
+                    this.ctx.drawImage(this.sprites.platform,this.platform.x,this.platform.y);
+                    this.ctx.drawImage(this.sprites.ball,this.ball.x*this.ball.frame,0
+                                      ,this.ball.width,this.ball.height
+                                      ,this.ball.x,this.ball.y
+                                      ,this.ball.width,this.ball.height);
+                    
+                    this.blocks.forEach(function(el){
+                        if(el.isAlive){
+                            this.ctx.drawImage(this.sprites.block,el.x,el.y);
+                        }
+                    },this)
+            
+                    
+            
+                    this.ctx.fillText('SCORE: '+this.score, 15,this.height-15);
+                },
+                update: function(){
+                    if(this.ball.collide(this.platform)){
+                        this.ball.bumpPlatform(this.platform);
+                    }
+            
+            
+                    if(this.platform.dx){
+                        this.platform.move();
+                    }
+                    if(this.ball.dx||this.ball.dy){
+                        this.ball.move();
+                    }
+                    this.blocks.forEach(function(element){
+                        if(element.isAlive){
+                                if(this.ball.collide(element)){
+                                    this.ball.bumpBlock(element);
+                            }
+                        }
+                    },this);
+                    this.ball.checkBounds();
+                },
+                run: function(){
+                    this.update();
+                    this.render();
+                    if(this.running){
+                        window.requestAnimationFrame(function(){
+                            game.run();
+                        });//указывает браузеру вывести на экран и запланировать перерисовку
+                    }
+                },
+                over: function (mes) {
+                    alert(mes);
+                    console.log('GAME OVER!');
+                    this.running=false;
+                    window.location.reload();
+                }
+            };
+            
+            game.ball={
+                width:22,
+                height:22,
+                frame:0,
+                x:340,
+                y:278,
+                dx:0,
+                dy:0,
+                speed:3,
+                jump:function(){
+                    this.dx=-this.speed;
+                    this.dy=-this.speed;
+                    this.animate();
+                },
+                animate:function () {
+                    setInterval(function() {
+                        ++game.ball.frame;
+                        if(game.ball.frame > 3){
+                            game.ball.frame=0;
+                        }
+                    },100);
+                    
+                },
+                move: function(){
                       this.x+=this.dx;
-                      if(this.ball){
-                          this.ball.x += this.dx;
-                      }
-                  },
-                  stop: function(){
-                      this.dx=0;
-                      if(this.ball){
-                          this.ball.dx = 0;
-                      }
-                  },
-                  releaseBall:function(){
-                      if(this.ball){
-                          this.ball.jump();
-                          this.ball=false;
-                      }
-                  } 
-              };
-              
-              
-              window.addEventListener('load',function(){
-                  game.start();
-              });
-            </pre>
-          </code>
-        </section>
-      </a>
-      <a name="practis">
-        <section class="practis">
-          
-        </section>
-      </a>
-      <a name="course">
-        <section class="course"></section>
-      </a>
-      <a name="english">
-        <section class="english"></section>
-      </a>
+                      this.y+=this.dy;
+                },
+                collide:function(element){
+                    var x=this.x + this.dx;
+                    var y=this.y + this.dy;
+                    if(x + this.width > element.x &&
+                        x < element.x+element.width&&
+                        y+this.height > element.y&&
+                        y < element.y+element.height
+                    ){
+                        return true;
+                    }
+                    return false;
+                },
+                bumpBlock: function(block){
+                    this.dy*=-1;
+                    block.isAlive=false;
+                    ++game.score;
+                    if(game.score >= game.blocks.length){
+                        game.over('YOU WIN');
+                    }
+                },
+                onTheLeftSide:function (platform) {
+                    return (this.x+this.width/2)<(platform.x+platform.width/2);
+                },
+                bumpPlatform: function(platform){
+                    this.dy = -this.speed;
+                    this.dx=this.onTheLeftSide(platform)?-this.speed:this.speed;
+                    
+                },
+                checkBounds: function () {
+                    var x=this.x + this.dx;
+                    var y=this.y + this.dy;
+                    if(x < 0){
+                        this.x=0;
+                        this.dx=this.speed;
+                    }else if(x+this.width > game.width){
+                        this.x=game.width-this.width;
+                        this.dx=-this.speed;
+                    }else if(y < 0){
+                        this.y=0;
+                        this.dy=this.speed;
+                    }else if(y+this.height>game.height){
+                        game.over('GAME OVER');
+                    }
+                }
+            }
+            
+            game.platform={
+                x:300,
+                y:300,
+                speed: 6,
+                dx: 0,
+                ball: game.ball,
+                width: 104,
+                height: 24,
+                move: function(){
+                    this.x+=this.dx;
+                    if(this.ball){
+                        this.ball.x += this.dx;
+                    }
+                },
+                stop: function(){
+                    this.dx=0;
+                    if(this.ball){
+                        this.ball.dx = 0;
+                    }
+                },
+                releaseBall:function(){
+                    if(this.ball){
+                        this.ball.jump();
+                        this.ball=false;
+                    }
+                } 
+            };
+            
+            
+            window.addEventListener('load',function(){
+                game.start();
+            });
+          </pre>
+        </code>
+      </section>
+      <a name="practis"></a>
+      <section class="practis">
+          <h2>Practis</h2>
+          <ul class="practis-list">
+            <li>Site: <a href="http://templa.by" target="_blank" >templa.by</a></li>
+            <li>Rsscool: <a href="https://github.com/rolling-scopes-school/kir-22-2018Q1" target="_blank">Site LAMBDA</a></li>
+            <li>For test on platform: <a href="http://geekbrains.ru" target="_blank" >GeekBrains</a></li>
+            <li>For improve my skills on codewars: <a href="http://codewars.com" target="_blank">Codewars</a></li>
+          </ul>
+      </section>
+      <a name="course"></a>
+      <section class="course">
+        <h2>Course</h2>
+        <div class="resume-education">
+          <div class="education-title">
+            <h4>Higer aducation</h4>
+          </div>
+          <div class="education-content">
+            <div class="education-years">2012</div>
+            <div class="education-describe">
+              <p>Belarusian National Technical University</p>
+              <p>Instrument-making faculty, Micro and nanotechnics (engineer-technologist)</p>
+            </div>
+          </div>
+          <div class="education-title">
+            <h4>Professional development, courses</h4>
+          </div>
+          <div class="education-content">
+            <div class="education-years">2018</div>
+            <div class="education-describe">
+              <p>The basics of game development on Unity</p>
+              <p>HTP, Game Developer</p>
+            </div>
+          </div>
+          <div class="education-content">
+            <div class="education-years">2014</div>
+            <div class="education-describe">
+              <p>Software testing</p>
+              <p>Training Technology center "BelHard", SOFTWARE Testing (tester)</p>
+            </div>
+          </div>
+          <div class="education-content">
+            <div class="education-years">2014</div>
+            <div class="education-describe">
+              <p>Testing web-based applications</p>
+              <p>Training Technology center "BelHard", SOFTWARE Testing (tester)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <a name="english"></a>
+      <section class="english">
+        <h2>English level</h2>
+        <p class="text-english">My level English is a basic. I want to improve my English. I'd like to lern English fast. I study English himself: Duolingo, SkyEng, Youtoube video. 
+          I study him every day, because i want to speak English free.
+        </p> 
+        <img src="https://www.itestenglish.com/images/graph6.png" alt="english grafic">
+      </section>
     </main>
+    <footer class="footer">   
+      <p class="footer-info">&copy; by Kiryll Kireyeu <time>07.10.2018</time></p>
+      <div class="footer-contact">
+          <a href="tel:+375298092490">Phone: +375-29-809-24-90</a>
+          <a href="mailto: kirill89kireew@gmail.com">E-mail: kirill89kireew@gmail.com</a>
+          <a href="skype: kirill.kireev9?userinfo">Skype: kirill.kireev9</a>
+      </div> 
+    </footer>
   </div>
 </body>
 </html>
