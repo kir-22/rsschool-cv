@@ -17,7 +17,6 @@ body{
   margin: 0 auto;
   max-width: 1024px;
   width: 100%;
-  height: 800px;
 }
 h2{
   margin-bottom: 20px;
@@ -86,7 +85,7 @@ h2, h3{
   cursor: pointer;
 }
 /*Section about*/
-.about, .summary{
+.about, .summary, .skills, .example, .practis, .course, .english{
   display: flex;
   width: inherit;
   padding: 15px 25px;
@@ -154,4 +153,32 @@ h2, h3{
   text-align: justify;
   font-size: 1.2em;
   word-spacing: 0.01em;
+}
+/*Skills*/
+.skills{
+  flex-direction: column;
+}
+.skills-list{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  list-style-type: none;
+}
+.skills-list li{
+  font-size: 1.1em;
+}
+/*Example*/
+.example{
+  flex-direction: column;
+}
+.code-name{
+  margin: 15px 0;
+  color: #5aa520;
+}
+pre{
+  display: inline-block;
+  overflow: overlay;
+  height: 400px;
+  width: 100%;
+  border: 2px solid #daa520;
 }
