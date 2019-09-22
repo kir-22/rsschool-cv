@@ -19,6 +19,14 @@ body{
   width: 100%;
   height: 800px;
 }
+h2{
+  margin-bottom: 20px;
+  color: #daa520;
+  font-size: 2.5em;
+}
+h2, h3{
+  text-align: center;
+}
 .header{
   display: flex;
   justify-content: space-between;
@@ -134,4 +142,16 @@ body{
 .icon-instagram{
   background: url(image/social2.png) no-repeat 50% 90%;
   background-size: 350%;
+}
+/*Summary*/
+.summary{
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.summary p{
+  width: 60%;
+  text-align: justify;
+  font-size: 1.2em;
+  word-spacing: 0.01em;
 }
